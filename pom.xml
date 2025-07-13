@@ -26,7 +26,6 @@
 		<sonar.password>passw0rd</sonar.password> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 	</properties>
 
 	<dependencies>
@@ -81,20 +80,10 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<!-- provided dependencies -->
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-		
 	</dependencies>
 	
 	<distributionManagement>
-	
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
@@ -103,10 +92,9 @@
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <name>Mithun Technologies Snapshot Nexus Repository</name>
 	      <url>http://13.212.71.229:9980/mithuntechnologies/repository/canarabank-release/</url>
 	    </snapshotRepository>
-	    
 	</distributionManagement>
 	
 	<build>
@@ -146,9 +134,15 @@
 					<wtpContextName>maven-web-application</wtpContextName>
 				</configuration>
 			</plugin>
-			
-</plugins>
+
+			<!-- ✅ FIX: Added proper maven-war-plugin version -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+			</plugin>
+
+		</plugins>
 	</build>
-	
-	
 </project>
+
